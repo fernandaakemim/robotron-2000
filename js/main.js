@@ -1,6 +1,22 @@
 const controle = document.querySelectorAll('[data-controle]');
 const estatisticas = document.querySelectorAll('[data-estatistica]');
 
+var contadorImg=0;
+const robos = [
+    'img/robotron-azul.png',
+    'img/robotron-branco.png',
+    'img/robotron-amarelo.png',
+    'img/robotron-preto.png',
+    'img/robotron-vermelho.png',
+    'img/robotron-rosa.png'
+];
+
+const botaoNext = document.querySelector('.escolha'); //capturando o botão que navega os robos
+
+botaoNext.addEventListener("click", () => {
+    trocar();
+})
+
 const pecas = {
     "bracos": {
         "forca": 29,
@@ -61,4 +77,13 @@ function atualizaEstatisticas(operacao, peca) {
         }
         
     })
+}
+
+function trocar() {
+    contadorImg++;
+    if (contadorImg == robos.length) {
+        contadorImg=0;
+    }
+    document.querySelector('.robo').src=robos[contadorImg];
+    
 }
